@@ -11,6 +11,12 @@ namespace Chambersoft.DapperFactory.Extensions
 {
     public static class NinjectExtensions
     {
+        public static IKernel InjectProviders(this IKernel kernel)
+        {
+            kernel.Bind<ICacheProvider>().To<DefaultCacheProvider>();
+            return kernel;
+        }
+
         public static IKernel InjectServices(this IKernel kernel, IGenericServiceProvider sp, IGenericServiceProvider gsp)
         {
             // handlers
